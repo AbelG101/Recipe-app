@@ -33,10 +33,10 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Hello Rails <a name="about-project"></a>
+# 📖 Recipe app <a name="about-project"></a>
 
 **Blog App** 
-> This is a web app that allows the user to post, edit, save, and view their blog posts with time-stamped entries. 
+> The Recipe app keeps track of all your recipes, ingredients, and inventory. It will allow you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe. Also, since sharing recipes is an important part of cooking the app should allow you to make them public so anyone can access them.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -64,7 +64,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- comming soon ⌛
+- Comming soon ⌛
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
