@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'about/index'
+  get 'shopping_list/index'
   devise_for :users
   devise_scope :user do
     authenticated :user do
