@@ -10,9 +10,10 @@ Rails.application.routes.draw do
       root :to => 'devise/registrations#new', as: :unauthenticated_root
     end
   end
-  resources :recipe_foods
   resources :foods
-  resources :recipes
+  resources :recipes do
+    resources :recipe_foods
+  end
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
