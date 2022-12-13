@@ -1,14 +1,48 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Foods</h1>
+<h1 class="flex justify-center mt-5 text-4xl font-bold underline decoration-sky-500">Foods</h1>
 
-<div id="foods">
-  <% @foods.each do |food| %>
-    <%= render food %>
-    <p>
-      <%= link_to "Show this food", food %>
-    </p>
+<div class="flex justify-center ml-[40%] my-10">
+  <%= link_to new_food_path do %>
+    <div class="flex items-center justify-center h-full p-2 w-10 bg-blue-800 text-white shadow rounded-full">
+      <div class="relative">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+        </svg>
+      </div>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New food", new_food_path %>
+<div id="foods" class="flex justify-center mt-5">
+<table class="min-w-fit ">
+ <thead class="border-b">
+    <tr>
+      <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">#</th>
+      <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Food</th>
+      <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Measurement Unit</th>
+      <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Quantity</th>
+      <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Unit Price</th>
+      <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Actions</th>
+      <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Show</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @foods.each do |food| %>
+  <tr class="border-b">
+    <%= render food %>
+      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+    <div class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+      <%= button_to "Delete", food_path(food.id), method: :delete %>
+    </div>
+  </td>
+    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+    <div class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      <%= link_to "Show this food", food %>
+      </div>
+    </td>
+  <% end %>
+  <tr>
+  </tbody>
+  </table>
+</div>
