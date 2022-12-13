@@ -16,8 +16,8 @@
           <% if current_user %>
             <%= button_to "Sign out", destroy_user_session_path, method: :delete,  data: {turbo: false}, class: "bg-gray-500 px-4 py-2 rounded text-white hover:bg-indigo-500 text-sm uppercase", 'data-ripple-light': true %>
           <% else %>
-            <a href="#" class="text-gray-800 text-sm">LOGIN</a>
-            <a href="#" class="bg-indigo-600 px-4 py-2 rounded text-white hover:bg-indigo-500 text-sm">SIGNUP</a>
+            <%= link_to "Log in", new_session_path(resource_name), class:"text-gray-800 text-sm uppercase" %> 
+            <%= link_to "Sign up", new_registration_path(resource_name), class:"bg-indigo-600 px-4 py-2 rounded text-white hover:bg-indigo-500 uppercase text-sm" %>
           <% end %>
 
         </div>
