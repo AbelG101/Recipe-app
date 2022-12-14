@@ -23,13 +23,15 @@
     <hr>
     <div class="text-xl my-3 flex justify-between"><span class="text-gray-400">Unit Price:</span> $<%= @food.price %></div>
     <hr>
-    <%= link_to edit_food_path(@food) do %>
-      <div class="bg-gradient-base border text-center bg-blue-600 hover:bg-white text-white hover:text-blue-600 font-bold uppercase text-xs mt-5 py-4 px-6 rounded cursor-pointer">
-        Edit this food
-      </div>
-    <% end %>
-      <div class="bg-gradient-base border text-center bg-red-500 hover:bg-white text-white hover:text-red-700 font-bold uppercase text-xs mt-5 py-4 px-6 rounded cursor-pointer">
-        <%= button_to "DESTROY THIS FOOD", @food, method: :delete, data: {confirm: "Are you sure you want to delete this food?"}  %>
-      </div>
+      <% if can? :destroy, @food %>
+        <%= link_to edit_food_path(@food) do %>
+          <div class="bg-gradient-base border text-center bg-blue-600 hover:bg-white text-white hover:text-blue-600 font-bold uppercase text-xs mt-5 py-4 px-6 rounded cursor-pointer">
+            Edit this food
+          </div>
+        <% end %>
+        <div class="bg-gradient-base border text-center bg-red-500 hover:bg-white text-white hover:text-red-700 font-bold uppercase text-xs mt-5 py-4 px-6 rounded cursor-pointer">
+            <%= button_to "DESTROY THIS FOOD", @food, method: :delete, data: {confirm: "Are you sure you want to delete this food?"}  %>
+        </div>
+      <%end%>
   </div>
 </div>
