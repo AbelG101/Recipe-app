@@ -4,9 +4,8 @@ RSpec.describe 'foods', type: :feature do
   describe 'Tesing the creation of food' do
     before :each do
       @user1 = User.create(name: 'Betse', email: 'user@example.com', password: 'password', confirmed_at: Time.now)
-      @recipe1 = Recipe.create(name: 'Cooking', preparation_time: '20', cooking_time: '20', description: 'good food', public: true, user_id: @user1)
-      @food1 = Food.create(name: 'Potato', measurement_unit: 'kg', quantity: 4, price: 2, user_id: @user1)
-      @recipe_food1 = RecipeFood.create(quantity: 1, food_id: @food1, recipe_id: @recipe1)
+      @recipe1 = @user1.recipes.create(name: 'Cooking', preparation_time: '20', cooking_time: '20', description: 'good food', public: true, user_id: @user1)
+      @food1 = @user1.foods.create(name: 'Potato', measurement_unit: 'kg', quantity: 4, price: 2, user_id: @user1)
 
       visit new_user_session_path
       within('body') do
@@ -15,16 +14,32 @@ RSpec.describe 'foods', type: :feature do
       end
       click_button 'Login'
       sleep 3
-      visit recipes_path
-      # click_link 'Recipes'
-      # page.find_link('Show this recipe').click
-      # click_button 'Generate Shopping List'
-      puts "afsfdasdfsadf"
-      puts page.body
+      visit recipe_path(@recipe1)
+      click_link('Generate shoping list')
+    end
+
+    it 'renders page correctly' do
+      expect(page).to have_http_status :ok
+    end
+
+    it 'shows proper title' do
+      expect(page).to have_content('Shopping List')
+    end
+
+    it 'shows proper subtitle' do
+      expect(page).to have_content('Total value of food needed: ')
+    end
+
+    it 'shows proper subtitle' do
+      expect(page).to have_content('Amount of food: ')
     end
 
     it 'shows recipe food list for a single recipe' do
-      expect(page).to have_content('Cooking')
+      expect(page).to have_content('Food')
+      expect(page).to have_content('Quantity')
+      expect(page).to have_content('Unit')
+      expect(page).to have_content('Price')
+      expect(page).to have_content('Value')
     end
 
   end
