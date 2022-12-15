@@ -21,7 +21,6 @@
   <table class="w-[35%] border">
   <thead class="border-b">
       <tr>
-        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">#</th>
         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Food</th>
         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Quantity</th>
         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Unit Price</th>
@@ -30,8 +29,7 @@
     </thead>
     <tbody>
      <% @shopping_lists.each do |shopping_list| %>
-      <tr class="border-b bg-slate-50">
-        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">2</td>
+      <tr class="border-b even:bg-slate-50">
         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"><%= shopping_list.food.name%></td>
         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"><%= shopping_list.quantity%><%= shopping_list.food.measurement_unit%></td>
         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">$<%= shopping_list.food.price%></td>
