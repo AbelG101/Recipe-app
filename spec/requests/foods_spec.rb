@@ -14,7 +14,7 @@ RSpec.describe 'foods', type: :feature do
       sleep 3
       visit foods_path
     end
-    
+
     it 'renders page correctly' do
       expect(page).to have_http_status :ok
     end
@@ -38,6 +38,5 @@ RSpec.describe 'foods', type: :feature do
     it 'shows button to add new food' do
       expect(page).to have_content('Food')
     end
-
   end
 end

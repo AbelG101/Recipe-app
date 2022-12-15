@@ -4,7 +4,8 @@ RSpec.describe 'foods', type: :feature do
   describe 'Tesing the creation of food' do
     before :each do
       @user1 = User.create(name: 'Betse', email: 'user@example.com', password: 'password', confirmed_at: Time.now)
-      @recipe = @user1.recipes.create(name: 'pizza', preparation_time: '30mins', cooking_time: '90mins', description: 'the best pizza ever', public: true, user_id: @user)
+      @recipe = @user1.recipes.create(name: 'pizza', preparation_time: '30mins', cooking_time: '90mins',
+                                      description: 'the best pizza ever', public: true, user_id: @user)
       @food1 = @user1.foods.create(name: 'Potato', measurement_unit: 'kg', quantity: 4, price: 2, user_id: @user1)
       visit new_user_session_path
       within('body') do
