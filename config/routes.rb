@@ -6,15 +6,18 @@ Rails.application.routes.draw do
   devise_for :users
   devise_scope :user do
     authenticated :user do
-      root :to => 'users#index', as: :authenticated_root
+      root :to => 'recipes#public_recipes', as: :authenticated_root
     end
     unauthenticated :user do
-      root :to => 'devise/registrations#new', as: :unauthenticated_root
+      root :to => 'recipes#public_recipes'
     end
   end
   resources :foods
   resources :recipes do
     resources :recipe_foods
+    collection do 
+      get 'public_recipes', to: 'recipes#public_recipes'
+    end
   end
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
