@@ -1,5 +1,5 @@
-<div class="h-screen bg-gray-100 flex justify-center">
-    <div class="py-6 px-8 h-[80%] w-[25%] my-20 bg-white rounded shadow-xl">
+<div class="h-screen  bg-gray-100 flex justify-center">
+    <div class="py-6 px-8 h-[37rem] w-[20rem] mt-10 bg-white rounded shadow-xl">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <h2 class="flex justify-center text-4xl font-bold underline decoration-sky-500 mb-3">Sign Up</h2>
               <div class="mb-2">
@@ -9,10 +9,6 @@
         <div class="mb-2">
           <label class="block text-gray-800 font-bold">Email:</label>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "@email", class: "w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-indigo-600 :ring-indigo-600" %>
-        </div>
-        <div class="mb-2">
-          <label class="block text-gray-800 font-bold">Password:</label>
-          <%= f.password_field :password,  autocomplete: "new-password", placeholder: "Password",  class: "w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-indigo-600 :ring-indigo-600" %>
         </div>
         <div class="mb-2">
           <label class="block text-gray-800 font-bold">Password:</label>
