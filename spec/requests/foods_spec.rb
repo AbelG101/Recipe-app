@@ -30,5 +30,9 @@ RSpec.describe 'foods', type: :feature do
       expect(page).to have_content('kg')
     end
 
+    it 'shows button to add new food' do
+      expect(page).to have_content('Food')
+    end
+
   end
 end
