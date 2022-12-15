@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   get 'about/index'
-  get '/general_shopping_list/:id', to: 'shopping_list#index', as: 'general_shopping_list'
+  get 'shopping_list/index'
   devise_for :users
   devise_scope :user do
     authenticated :user do
