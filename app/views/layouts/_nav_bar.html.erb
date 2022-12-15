@@ -3,8 +3,8 @@
       <div class="flex justify-between h-16 px-10 shadow items-center">
           <h1 class="text-xl lg:text-2xl font-bold cursor-pointer">RecipeApp</h1>
           <div class="hidden md:flex justify-around space-x-4 gap-12">
+          <%= link_to "Home", public_recipes_path, class: "hover:text-indigo-600 text-gray-700" %>
           <% if current_user %>
-            <a href="#" class="hover:text-indigo-600 text-gray-700">Home</a>
             <%= link_to "Food", foods_path, class: "hover:text-indigo-600 text-gray-700" %>
             <%= link_to "Recipes", recipes_path, class: "hover:text-indigo-600 text-gray-700" %>
             <%= link_to "About", about_index_path, class: "hover:text-indigo-600 text-gray-700" %>

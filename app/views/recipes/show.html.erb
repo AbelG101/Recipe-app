@@ -6,13 +6,6 @@
 <%end %>
 <div class="p-5">
   <div>
-    <%= link_to recipes_path do %>
-      <div>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-        </svg>
-      </div>
-    <% end %>
   </div>
   <h1 class="font-bold text-3xl text-center mb-8"><%= @recipe.name %></h1>
   <div class="flex justify-around">
@@ -41,8 +34,8 @@
   </div>
 
   <div class="flex justify-around">
-    <%= link_to "Generate shoping list", general_shopping_list_path(@recipe.id), class: "inline-block px-2 py-3 my-4 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out self-start"%>
     <% if @recipe.user == current_user %>
+      <%= link_to "Generate shoping list", general_shopping_list_path(@recipe.id), class: "inline-block px-2 py-3 my-4 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out self-start"%>
       <%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe), class: "inline-block px-2 py-3 my-4 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"%>
     <% end %>
   </div>
@@ -62,16 +55,18 @@
         <% @recipe_foods.each do |recipe_food| %>
         <tr class="border-b">
           <%= render recipe_food %>
-        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-            <div >
-              <%= button_to "Delete", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, class:"bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" %>
-            </div>
-          </td>
-          <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-            <div >
-              <%= link_to "Edit", edit_recipe_recipe_food_path(@recipe, recipe_food), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
-            </div>
-          </td>
+          <% if @recipe.user == current_user %>
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <div >
+                  <%= button_to "Delete", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, class:"bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" %>
+                </div>
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <div >
+                  <%= link_to "Edit", edit_recipe_recipe_food_path(@recipe, recipe_food), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+                </div>
+              </td>
+          <% end %>
         <% end %>
         <tr>
       </tbody>
