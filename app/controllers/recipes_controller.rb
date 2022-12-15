@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[show edit update destroy]
 
   def public_recipes
-    @public_recipes = Recipe.where(public: true)
+    @public_recipes = Recipe.where(public: true).order("created_at DESC")
   end
 
   # GET /recipes or /recipes.json
