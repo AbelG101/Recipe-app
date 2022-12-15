@@ -7,7 +7,7 @@
       </p>
     </div>
     <div>
-        <%if can? :destroy, recipe%>
+        <%if recipe.user == current_user %>
           <%= button_to "Delete", recipe_path(recipe.id), method: :delete, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-1 my-2 px-4 rounded" %>
         <% end %>
         <% if (recipe.user == current_user || recipe.public) && current_page?(recipes_path) %>

@@ -4,7 +4,7 @@ RSpec.describe 'foods', type: :feature do
   describe 'Tesing the creation of food' do
     before :each do
       @user1 = User.create(name: 'Betse', email: 'user@example.com', password: 'password', confirmed_at: Time.now)
-      @food1 = @user1.foods.create(name: 'Potato', measurement_unit: 'kg', quantity: 4, price: 2, user_id: @user1)
+      @food1 = Food.create(name: 'Potato', measurement_unit: 'kg', quantity: 4, price: 2, user_id: @user1)
       visit new_user_session_path
       within('body') do
         fill_in '@email', with: 'user@example.com'
