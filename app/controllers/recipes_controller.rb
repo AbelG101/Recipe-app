@@ -2,6 +2,11 @@ class RecipesController < ApplicationController
   load_and_authorize_resource
   before_action :set_recipe, only: %i[show edit update destroy]
 
+  def public_recipes
+    @public_recipes = Recipe.where(public: true)
+  end
+  
+
   # GET /recipes or /recipes.json
   def index
     @recipes = current_user.recipes
