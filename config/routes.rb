@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   devise_for :users
   devise_scope :user do
     authenticated :user do
-      root :to => 'shopping_list#index', as: :authenticated_root
+      root :to => 'about#index', as: :authenticated_root
     end
     unauthenticated :user do
-      root :to => 'shopping_list#index'
+      root :to => 'about#index'
     end
   end
   resources :foods
