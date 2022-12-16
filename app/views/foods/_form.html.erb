@@ -1,0 +1,34 @@
+<%= form_with(model: food, html: {class: "flex flex-col items-center"}) do |form| %>
+  <% if food.errors.any? %>
+    <div class="bg-red-100 border border-red-200 text-red-700 px-4 py-3 rounded relative">
+        <% food.errors.each do |error| %>
+          <strong class="font-bold"><%= error.full_message %>!</strong>
+        <% end %>
+      <span class="block sm:inline"><%= pluralize(food.errors.count, "error") %>prohibited this food from being saved.</span>
+    </div>
+  <% end %>
+
+  <div class="w-full md:w-1/2 px-3 mb-4">
+    <%= form.label :name, style: "display: block", class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+    <%= form.text_field :name, :required => true, class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" %>
+  </div>
+
+  <div class="w-full md:w-1/2 px-3 mb-4">
+    <%= form.label :measurement_unit, style: "display: block", class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+    <%= form.text_field :measurement_unit, :required => true, class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" %>
+  </div>
+
+  <div class="w-full md:w-1/2 px-3 mb-4">
+    <%= form.label :price, style: "display: block", class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+    <%= form.text_field :price, :required => true,  class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" %>
+  </div>
+
+  <div class="w-full md:w-1/2 px-3 mb-4">
+    <%= form.label :quantity, style: "display: block", class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+    <%= form.number_field :quantity, :required => true, class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" %>
+  </div>
+
+  <div class="border-2 border-blue-600 rounded-lg px-3 py-2 text-blue-400 cursor-pointer hover:bg-blue-600 hover:text-blue-200">
+    <%= form.submit %>
+  </div>
+<% end %>

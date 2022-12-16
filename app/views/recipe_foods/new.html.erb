@@ -1,0 +1,17 @@
+<div class="flex flex-col md:flex-row md:transform md:scale-75 lg:scale-100 justify-center">
+  <div class="border rounded-lg p-10 mx-auto lg:mx-0 my-2 lg:my-6 bg-gray-100 font-medium z-10 shadow-lg ">
+    <div>
+      <%= link_to recipe_path(@recipe_food.recipe) do %>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+          </svg>
+        </div>
+      <% end %>
+    </div>
+    <h1 class="font-bold text-xl text-center my-5">Add ingredient for food</h1>
+
+    <%= render "form", recipe_food: @recipe_food %>
+  </div>
+</div>
+

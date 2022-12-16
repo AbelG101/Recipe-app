@@ -1,0 +1,5 @@
+<div id="<%= dom_id recipe_food %>"> 
+  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"><%= recipe_food.food.name %></td>
+  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"><%= recipe_food.quantity %><%= recipe_food.food.measurement_unit %></td>
+  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">$<%= recipe_food.food.price *  recipe_food.quantity %></td>
+</div>

@@ -1,0 +1,33 @@
+<div class="h-screen  bg-gray-100 flex justify-center">
+    <div class="py-6 px-8 h-[37rem] w-[20rem] mt-10 bg-white rounded shadow-xl">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <h2 class="flex justify-center text-4xl font-bold underline decoration-sky-500 mb-3">Sign Up</h2>
+              <div class="mb-2">
+          <label class="block text-gray-800 font-bold">Full Name:</label>
+          <%= f.text_field :name, autofocus: true, placeholder: "Full name", class: "w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-indigo-600 :ring-indigo-600" %>
+        </div>
+        <div class="mb-2">
+          <label class="block text-gray-800 font-bold">Email:</label>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "@email", class: "w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-indigo-600 :ring-indigo-600" %>
+        </div>
+        <div class="mb-2">
+          <label class="block text-gray-800 font-bold">Password:</label>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "New Password",  class: "w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-indigo-600 :ring-indigo-600" %>
+        </div>
+        <div class="mb-2">
+          <label class="block text-gray-800 font-bold">Password:</label>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password",  class: "w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-indigo-600 :ring-indigo-600" %>
+        </div>
+        <div class= "flex flex-col">
+        <%- if controller_name != 'sessions' %>
+          <%= link_to "Log in", new_session_path(resource_name), class:"text-sm font-thin text-gray-800 hover:underline mt-2 inline-block hover:text-indigo-600" %> 
+        <% end %>
+
+        <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+          <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), class:"text-sm font-thin text-gray-800 hover:underline mt-2 inline-block hover:text-indigo-600" %>
+        <% end %>
+        </div>
+        <%= f.submit "Sign up", class: "cursor-pointer py-2 px-4 block mt-6 bg-indigo-500 text-white font-bold w-full text-center rounded" %>
+    </div>
+  </div>
+  <% end %>
