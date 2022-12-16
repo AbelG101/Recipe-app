@@ -61,9 +61,7 @@ group :development, :test do
   gem 'ffi'
   gem 'rspec-rails'
   gem 'rswag-specs'
-  gem 'capybara'
   gem 'webdrivers'
-
 end
 
 group :development do

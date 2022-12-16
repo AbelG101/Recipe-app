@@ -3,7 +3,7 @@ class Ability
 
   def initialize(user)
     # Define abilities for the user here. For example:
-
+    user ||= User.new # guest user (not logged in)
     return unless user.present?
 
     can :manage, Recipe, user_id: user.id
