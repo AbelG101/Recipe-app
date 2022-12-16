@@ -64,7 +64,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- Comming soon ⌛
+- (Click here)[https://recipeapp-ka02.onrender.com/]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
