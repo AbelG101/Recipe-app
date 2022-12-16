@@ -66,7 +66,6 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem 'cancancan', '~> 3.4'
   gem 'letter_opener'
   gem 'web-console'
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
@@ -84,3 +83,4 @@ group :test do
 end
 
 gem 'bullet', '~> 7.0'
+  gem 'cancancan', '~> 3.4'
