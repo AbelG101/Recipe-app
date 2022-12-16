@@ -33,6 +33,5 @@ RSpec.describe 'foods', type: :feature do
     it 'shows button to add new food' do
       expect(page).to have_content('Food')
     end
-
   end
 end
