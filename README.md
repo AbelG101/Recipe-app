@@ -76,12 +76,12 @@ To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-In order to run this project you need:
+To run this project you need:
 - Ruby
 - Ruby on Rails
-- PostgreSql
+- PostgreSQL
 
-> Visit this [link](https://www.ruby-lang.org/en/documentation/installation/) on how to install Ruby for different OS's.
+> Visit this [link](https://www.ruby-lang.org/en/documentation/installation/) on how to install Ruby for different OS.
 
 > Visit this [link](https://www.postgresql.org/download/) on how to install PostgreSQL.
 
